@@ -1,0 +1,42 @@
+api_platform:
+    title: 'Flutter API Platform'
+    version: '1.0'
+    eager_loading:
+        max_joins: 100
+
+    mapping:
+        paths:
+            - '%kernel.project_dir%/src/Entity' # default configuration for annotations
+    patch_formats:
+        json: ['application/merge-patch+json']
+    swagger:
+        versions: [3]
+        api_keys:
+            apiKey:
+                name: Authorization
+                type: header
+    formats:
+        jsonld:
+            mime_types:
+                - application/ld+json
+        json:
+            mime_types:
+                - application/json
+        html:
+            mime_types:
+                - text/html
+        csv:
+            mime_types:
+                - text/csv
+    enable_docs: true
+    enable_entrypoint: true
+
+    # Allow using plain IDs for JSON format
+    allow_plain_identifiers: true
+
+    collection:
+        pagination:
+            client_enabled: true
+            enabled_parameter_name: pagination
+            client_items_per_page: true
+            items_per_page_parameter_name: itemsPerPage

@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Flutters - Dashboard{% endblock %}
+{% block css %}
+    {{ parent() }}
+{% endblock %}
+
+{% block toolbar %}
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        <label>Parola:</label> <br>
+        {{ form_widget(form.plainPassword.first, {attr: {class: 'form-control m-input m-input--square'} }) }} <br>
+        <label>Repetă parola:</label> <br>
+        {{ form_widget(form.plainPassword.second, {attr: {class: 'form-control m-input m-input--square'} }) }} <br>
+        <p>{{ form_errors(form.plainPassword.first) }}</p>
+    <br>
+    <button type="submit">Salvează!</button>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block jsVendors %}
+{% endblock %}
